@@ -37,6 +37,7 @@ nv.models.multiBarChart = function() {
 
   multibar
     .stacked(false)
+    .drawTime(0)
     ;
   xAxis
     .orient('bottom')

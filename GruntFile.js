@@ -46,6 +46,20 @@ module.exports = function(grunt) {
                      'src/outro.js'
                      ],
                 dest: 'nv.d3.js'
+            },
+            multibar: {
+                src: [
+                     'src/intro.js',
+                     'src/core.js',
+                     'src/tooltip.js',
+                     'src/utils.js',
+                     'src/models/axis.js',
+                     'src/models/legend.js',
+                     'src/models/multiBar.js',
+                     'src/models/multiBarChart.js',
+                     'src/outro.js'
+                     ],
+                dest: 'nv.d3.multibar.js'
             }
         },
         uglify: {
@@ -81,7 +95,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['concat']);
-    grunt.registerTask('production', ['concat', 'uglify']);
+    grunt.registerTask('default', ['concat:dist']);
+    grunt.registerTask('production', ['concat:dist', 'uglify']);
+    grunt.registerTask('multibar', ['concat:multibar']);
     grunt.registerTask('lint', ['jshint']);
 };

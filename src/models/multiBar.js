@@ -20,8 +20,8 @@ nv.models.multiBar = function() {
     , hideable = false
     , barColor = null // adding the ability to set the color for each rather than the whole group
     , disabled // used in conjunction with barColor to communicate from multiBarHorizontalChart what series are disabled
-    , delay = 1200
-    , drawTime = 500
+    , delay = 0 //1200
+    , drawTime = 0 //500
     , xDomain
     , yDomain
     , dispatch = d3.dispatch('chartClick', 'elementClick', 'elementDblClick', 'elementMouseover', 'elementMouseout')
