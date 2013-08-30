@@ -1082,23 +1082,8 @@ nv.models.multiBar = function() {
       x   .domain(d3.merge(seriesData).map(function(d) { return d.x }))
           .rangeBands([0, availableWidth], .1);
 
-      var newDomainY = d3.extent(d3.merge(seriesData).map(function(d) { return stacked ? (d.y > 0 ? d.y1 : d.y1 + d.y ) : d.y }).concat(forceY));
-
-      console.log(newDomainY[1], newDomainY[1] / 10);
-
-      var maxval = newDomainY[1];
-      var netick = Math.pow(10, (('' + Math.round(maxval)).length - 1)); 
- 
-      while (maxval / netick < 10) {
-        netick = Math.pow(10, (('' + Math.round(netick / 2)).length - 1)); 
-      };
-
-      newDomainY[1] = Math.ceil(maxval / netick) * netick;
-
-      console.log('newDomainY', newDomainY, 'netick', netick);
-
       //y   .domain(yDomain || d3.extent(d3.merge(seriesData).map(function(d) { return d.y + (stacked ? d.y1 : 0) }).concat(forceY)))
-      y   .domain(yDomain || newDomainY)
+      y   .domain(yDomain || d3.extent(d3.merge(seriesData).map(function(d) { return stacked ? (d.y > 0 ? d.y1 : d.y1 + d.y ) : d.y }).concat(forceY)))
           .range([availableHeight, 0]);
 
       // If scale's domain don't have a range, slightly adjust to make one... so a chart can show a single data point
