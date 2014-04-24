@@ -244,7 +244,7 @@ nv.models.multiBarChart = function() {
           // Issue #140
           xTicks
             .selectAll("text")
-            .attr('transform', function(d,i,j) { 
+            .attr('transform', function(d,i,j) {
                 return  getTranslate(0, (j % 2 == 0 ? staggerUp : staggerDown));
               });
 
@@ -269,7 +269,7 @@ nv.models.multiBarChart = function() {
           .selectAll('text')
           .attr('transform', 'rotate(' + rotateLabels + ' 0,0)')
           .attr('text-anchor', rotateLabels > 0 ? 'start' : 'end');
-      
+
       g.select('.nv-x.nv-axis').selectAll('g.nv-axisMaxMin text')
           .style('opacity', 1);
 
@@ -311,7 +311,7 @@ nv.models.multiBarChart = function() {
           data.forEach(function(d) {
              d.disabled = true;
           });
-          d.disabled = false;  
+          d.disabled = false;
 
           state.disabled = data.map(function(d) { return !!d.disabled });
           dispatch.stateChange(state);
@@ -493,7 +493,7 @@ nv.models.multiBarChart = function() {
     defaultState = _;
     return chart;
   };
-  
+
   chart.noData = function(_) {
     if (!arguments.length) return noData;
     noData = _;

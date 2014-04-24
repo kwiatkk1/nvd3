@@ -131,7 +131,7 @@ nv.models.axis = function() {
           axisLabel
               .attr('text-anchor', 'middle')
               .attr('y', xLabelMargin)
-              .attr('x', w/2);
+              .attr('x', !isNaN(w) ? w/2 : scale.range()[0]);
           if (showMaxMin) {
           //if (showMaxMin && !isOrdinal) {
             var axisMaxMin = wrap.selectAll('g.nv-axisMaxMin')
